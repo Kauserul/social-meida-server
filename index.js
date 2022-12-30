@@ -20,6 +20,13 @@ async function run(){
         const result = await allPost.insertOne(post)
         res.send(result)
     })
+
+    app.get('/post', async(req, res) =>{
+        const query = {}
+        const result = await allPost.find(query).toArray()
+        res.send(result)
+    })
+
 }
 
 run().catch(console.dir())
